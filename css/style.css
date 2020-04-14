@@ -38,13 +38,20 @@ h1, h2, strong {
     color: #000;
     justify-self: start;
 }
+
+/* ====================
+    general layout
+===================== */
+.main-grid {
+  display: grid;
+  grid-template-columns: minmax(1em, 1fr) minmax(0px, 500px) minmax(1em, 1fr);
+}
 /* ====================
     hero area
 ======================= */
 
 .hero {
-  display: grid;
-  grid-template-columns: minmax(1em, 1fr) minmax(0px, 500px) minmax(1em, 1fr);
+ 
   background-image:url('../img/racoonintree.jpg');
   padding: 4em 0;
   color: #fff;

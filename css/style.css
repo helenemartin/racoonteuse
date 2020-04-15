@@ -1,42 +1,46 @@
 * {box-sizing: border-box;}
 
 body {
-  margin: 0;
-  font-family: 'Avenir', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #404040;
+    line-height: 1.6;
 }
 
 
+/* ==================
+    Typography
+===================== */
 
-/* ====================
-    typography
-======================= */
 h1, h2, strong {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .accent-color {
-  color: pink;
+    color: #FFE600;
 }
 
+
 .hero-title {
-  font-size: 2rem;
-  line-height: 1.4;
-  margin-bottom:0;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 0;
 }
 
 .section-title {
-  font-size: 1.125rem;
-  color: #000;
-  margin-top: 1.25em;
+    font-size: 1.125rem;
+    color: #000;
+    margin-top: 1.25em;
 }
 
 /* buttons */
 
 .btn {
-    padding: .5em 1.5em;
+    padding: .5em 1.75em;
     font-weight: 700;
+    margin-top: .5em;
+    text-decoration: none;
 }
 
 .btn-primary {
@@ -45,18 +49,34 @@ h1, h2, strong {
     justify-self: start;
 }
 
-/* ====================
+
+/* ==================
     general layout
 ===================== */
+
 .main-grid {
-  display: grid;
-  grid-template-columns: minmax(1em, 1fr) minmax(0px, 500px) minmax(1em, 1fr);
+    display: grid;
+    grid-template-columns: minmax(1em, 1fr) minmax(0px, 500px) minmax(1em, 1fr);
+    grid-column-gap: 2em;
 }
 
+@media (min-width: 600px) {
+    .main-grid {
+        grid-template-columns: minmax(1em, 1fr) repeat(3, minmax(150px, 320px)) minmax(1em, 1fr);
+    }
+}
+
+
 /* footer */
+
 .footer {
-  background: #ebebeb;
-  text-align: center;
+    background: #ebebeb;
+    padding: 4em 0;
+    text-align: center;
+    
+    grid-template-areas:
+        ". social ."
+        ". main .";
 }
 
 .footer-main,
@@ -67,7 +87,11 @@ h1, h2, strong {
 .footer-logo,
 .footer-text,
 .footer-fineprint {
-    opacity: .4;
+    opacity: .3;
+}
+
+.footer-main {
+    grid-area: main;
 }
 
 .footer-fineprint {
@@ -76,7 +100,7 @@ h1, h2, strong {
 }
 
 .social-list {
-    order: -1;
+    grid-area: social;
     list-style: none;
     padding: 0;
     margin: 0 0 2em;
@@ -86,48 +110,85 @@ h1, h2, strong {
 
 .social-link {
     color: #000;
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin: 0 .5em;
 }
 
 .social-link:hover {
     color: #777;
 }
-/* ====================
+
+@media (min-width: 600px) {
+    .footer {
+        grid-template-areas: 
+          ". main main social ."
+    }
+    
+    .footer-main {
+        text-align: left;
+    }
+    
+    .social-list {
+        justify-content: flex-end;
+    }
+}
+
+/* ==================
     hero area
-======================= */
+===================== */
 
 .hero {
-  background-image:url('../img/racoonintree.jpg');
-  background-size:cover;
-  background-position: right 55% bottom 30%;
-  padding: 4em 0;
-  color: #fff;
+    background-image: url(../img/racoonintree.jpg);
+    background-size: cover;
+    background-position: left center;
+    padding: 4em 0;
+    color: #fff;
 }
 
 .hero > * {
-  grid-column: 2 / -2;
+    grid-column: 2 / -2;
 }
 
 @media (min-width: 600px) {
+    
     .hero {
         padding: 6em 0;
     }
+    
     .hero > * {
         grid-column: 2 / span 2;
     }
 
 }
 
-/* ====================
-    info
-======================= */
+
+/* ==================
+    info section
+===================== */
 
 .info {
-  padding: 4em 0;
-  text-align: center;
+    padding: 4em 0;
+    text-align: center;
 }
 
 .col {
-  grid-column: 2 / -2;
+    grid-column: 2 / -2;
 }
+
+@media (min-width: 600px) {
+    .col {
+        grid-column: span 1;
+    }
+    
+    .col:first-child {
+        grid-column: 2 / span 1;
+    }
+}
+
+
+
+
+
+
+
+
